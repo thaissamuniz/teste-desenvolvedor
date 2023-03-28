@@ -3,6 +3,10 @@ const segundaResposta = document.querySelector('.resposta__dois');
 const terceiraResposta = document.querySelector('.resposta__tres');
 const quartaResposta = document.querySelector('.resposta__quatro');
 const quintaResposta = document.querySelector('.resposta__cinco');
+const respostaUsuario = document.querySelector('.exericio__dois');
+const btnExercicioDois = document.querySelector('.exericio__dois--btn');
+const respostaUsuarioCinco = document.querySelector('.exericio__cinco');
+const btnExercicioCinco = document.querySelector('.exericio__cinco--btn');
 
 const dados = [
     {
@@ -145,7 +149,7 @@ const calculaPrimeiroExercicio = () => {
 
 const calculaFibonacci = () => {
 
-    const numeroDesejado = parseInt(prompt("informe um número, por favor"));
+    const numeroDesejado = parseInt(respostaUsuario.value);
     const sequencia = [];
     let cont = 1;
 
@@ -241,7 +245,7 @@ const calculaPorcentagem = () => {
 //exercicio 5
 const convertePalavra = () => {
 
-    let palavra = prompt("qual palavra você gostaria de inverter?");
+    let palavra = respostaUsuarioCinco.value;
     let palavraInvertida = '';
 
     for (i = palavra.length - 1; i >= 0; i--) {
@@ -254,10 +258,22 @@ const convertePalavra = () => {
 
 calculaPrimeiroExercicio();
 
-calculaFibonacci();
+btnExercicioDois.addEventListener('click', e => {
+    e.preventDefault();
+    calculaFibonacci();
+    respostaUsuario.value = '';
+});
 
 calculaFaturamento();
 
 calculaPorcentagem();
 
-convertePalavra();
+// convertePalavra();
+
+btnExercicioCinco.addEventListener('click', e => {
+    e.preventDefault();
+    convertePalavra();
+    respostaUsuarioCinco.value = '';
+});
+
+
