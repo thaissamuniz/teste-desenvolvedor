@@ -238,6 +238,20 @@ const calculaPorcentagem = () => {
     })
 }
 
+//exercicio 5
+const convertePalavra = () => {
+
+    let palavra = prompt("qual palavra você gostaria de inverter?");
+    let palavraInvertida = '';
+
+    for (i = palavra.length - 1; i >= 0; i--) {
+        palavraInvertida += palavra[i]
+    }
+
+    quintaResposta.innerText = `exercício 5: a palavra ${palavra} invertida é ${palavraInvertida}`;
+    console.log(palavraInvertida);
+}
+
 calculaPrimeiroExercicio();
 
 calculaFibonacci();
@@ -245,3 +259,5 @@ calculaFibonacci();
 calculaFaturamento();
 
 calculaPorcentagem();
+
+convertePalavra();
