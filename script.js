@@ -209,10 +209,39 @@ const calculaFaturamento = () => {
 }
 
 
+//exercicio 4
+const calculaPorcentagem = () => {
 
+    const estadosEValores = [
+        { estado: 'SP', valor: '67.836,43' },
+        { estado: 'RJ', valor: '36.678,66' },
+        { estado: 'MG', valor: '29.229,88' },
+        { estado: 'ES', valor: '27.165,48' },
+        { estado: 'outros', valor: '19.849,53' }
+    ];
+
+    const valoresSemPonto = estadosEValores.map(estado => estado.valor.replace('.', ''));
+
+    const valoresFormatados = valoresSemPonto.map(estado => estado.replace(',', '.'));
+
+    const valoresFloat = valoresFormatados.map(valor => parseFloat(valor))
+
+    let valorTotalMensal = 0;
+
+    valoresFloat.forEach(valor => valorTotalMensal += valor);
+
+    valoresFloat.forEach((valor, i) => {
+        const percentual = Math.round((valor / valorTotalMensal) * 100)
+
+        quartaResposta.innerText += `${estadosEValores[i].estado} representa ${percentual}% - `
+        console.log(estadosEValores[i].estado + ' representa ' + percentual + '%')
+    })
+}
 
 calculaPrimeiroExercicio();
 
 calculaFibonacci();
 
 calculaFaturamento();
+
+calculaPorcentagem();
